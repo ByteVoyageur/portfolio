@@ -118,11 +118,11 @@ const Offcanvas = ({ showCanvas, setShowCanvas }: any) => {
             <div className='tp-offcanvas-right-inner d-flex flex-column justify-content-between h-100'>
               <div className='tpoffcanvas__right-info'>
                 <div className='tpoffcanvas__tel'>
-                  <a href='tel:61404093954'>+61404093 954</a>
+                  <a href='tel:61404093954'>06 49 42 70 55</a>
                 </div>
                 <div className='tpoffcanvas__mail'>
                   <a href='mailto:hellocontact@diego.com'>
-                    hello contact@diego.com
+                    xiaosong.dev@gmail.com
                   </a>
                 </div>
                 <div className='tpoffcanvas__text'>
@@ -133,6 +133,14 @@ const Offcanvas = ({ showCanvas, setShowCanvas }: any) => {
               <div className='tpoffcanvas__social-link'>
                 <ul>
                   <li>
+                    <a
+                      href='https://www.linkedin.com/in/xiaosongbi/'
+                      target='_blank'
+                    >
+                      Linkedin
+                    </a>
+                  </li>
+                  <li>
                     <a href='https://www.dribbble.com' target='_blank'>
                       Dribbble
                     </a>
@@ -140,16 +148,6 @@ const Offcanvas = ({ showCanvas, setShowCanvas }: any) => {
                   <li>
                     <a href='https://www.instagram.com' target='_blank'>
                       Instagram
-                    </a>
-                  </li>
-                  <li>
-                    <a href='https://www.linkedin.com' target='_blank'>
-                      Linkedin
-                    </a>
-                  </li>
-                  <li>
-                    <a href='https://www.behance.com' target='_blank'>
-                      Behance
                     </a>
                   </li>
                 </ul>
