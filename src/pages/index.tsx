@@ -4,7 +4,7 @@ import React from 'react'
 import HomePages from './HomePages'
 
 export const metadata = {
-  title: 'Portfolio - Personal Creative Portfolio & Resume Next js Template',
+  title: 'Xiaosong Portfolio ',
 }
 
 const index = () => {
