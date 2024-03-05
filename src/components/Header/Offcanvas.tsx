@@ -1,3 +1,4 @@
+// Code: Offcanvas Component
 import React from 'react'
 import Image from 'next/image'
 
@@ -72,7 +73,7 @@ const Offcanvas = ({ showCanvas, setShowCanvas }: any) => {
             </div>
             <div className='tp-main-menu-mobile menu-hover-active counter-row'>
               <nav>
-                <MobileMenus />
+                <MobileMenus onMenuClick={() => setShowCanvas(false)} />
               </nav>
             </div>
           </div>

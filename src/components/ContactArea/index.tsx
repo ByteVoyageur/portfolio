@@ -9,7 +9,6 @@ import ContactForm from '../ContactFormTwo'
 interface DataType {
   subtitle: string
   title_1: string
-  title_2: string
   email: string
   mail_text: React.JSX.Element
   categorys: {
@@ -19,7 +18,7 @@ interface DataType {
 }
 
 const contact_content: DataType = {
-  subtitle: 'Contact Me',
+  subtitle: 'Contact',
   title_1: 'keep in touch with me',
   email: 'xiaosong.dev@gmail.com',
   mail_text: (

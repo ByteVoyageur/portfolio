@@ -1,5 +1,5 @@
 'use client'
-import Offcanvas from './Offcanvas'
+/* import Offcanvas from './Offcanvas' */
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
@@ -240,7 +240,7 @@ const HeaderThree = () => {
                       </span>
                     </Link>
                   </div>
-                  <div className='tp-header-3__bar'>
+                  {/* <div className='tp-header-3__bar'>
                     <button
                       className='tp-menu-bar tp-offcanvas-open-btn'
                       onClick={() => setShowCanvas(true)}
@@ -266,7 +266,7 @@ const HeaderThree = () => {
                         />
                       </svg>
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -452,7 +452,7 @@ const HeaderThree = () => {
         </div>
       </header>
 
-      <Offcanvas showCanvas={showCanvas} setShowCanvas={setShowCanvas} />
+      {/* <Offcanvas showCanvas={showCanvas} setShowCanvas={setShowCanvas} /> */}
     </>
   )
 }

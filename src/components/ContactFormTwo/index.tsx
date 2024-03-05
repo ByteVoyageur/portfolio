@@ -40,7 +40,7 @@ const ContactFormHomeTwo = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form id='contactForm' onSubmit={handleSubmit(onSubmit)}>
         <div className='row'>
           <div className='col-xl-4 col-lg-4 mb-50'>
             <div className='tp-contact-2__input'>

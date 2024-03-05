@@ -7,6 +7,7 @@ import hero_shape_1 from '@/public/img/hero/hero-shape-2-1.png'
 import hero_shape_2 from '@/public/img/hero/hero-shape-2-2.png'
 import { HeroSocialLinksHomeThree } from '@/src/components/SocialLinks'
 import { scroller } from 'react-scroll'
+import { auto } from '@popperjs/core'
 
 const scrollTo = () => {
   scroller.scrollTo('service', {
@@ -19,7 +20,10 @@ const scrollTo = () => {
 const HeroAreaHomePage = () => {
   return (
     <>
-      <div className='tp-hero-3__area black-bg-3 tp-hero-3__ptb z-index-1 smooth p-relative tp-btn-trigger-3'>
+      <div
+        id='home'
+        className='tp-hero-3__area black-bg-3 tp-hero-3__ptb z-index-1 smooth p-relative tp-btn-trigger-3'
+      >
         <div className='tp-hero-3__shape-1'>
           <Image src={hero_shape_1} alt='image-here' />
         </div>
@@ -95,14 +99,12 @@ const HeroAreaHomePage = () => {
                 <h3 className='tp-hero-3__title tp-char-animation'>
                   Xiaosong{' '}
                   <span>
-                    <video
-                      id='myVideo'
-                      autoPlay
-                      loop
-                      playsInline
-                      muted
-                      src='https://template.wphix.com/video/diego-video.mp4'
-                    ></video>
+                    <Image
+                      src='/img/hero/xiaosong-hero.webp'
+                      alt='image-here'
+                      width={295}
+                      height={114}
+                    />
                   </span>{' '}
                   <br />
                   Web Developer
@@ -110,8 +112,8 @@ const HeroAreaHomePage = () => {
               </div>
               <div className='tp-hero-3__btn-box tp_wrap_anim d-flex align-items-center justify-content-start justify-content-md-center'>
                 <div className='tp-btn-bounce-3'>
-                  <Link className='tp-btn-blue' href='/portfolio'>
-                    <span className='text'> View Our Work</span>
+                  <Link className='tp-btn-blue' href='#projetArea'>
+                    <span className='text'> my projects</span>
 
                     <span className='icon'>
                       <svg

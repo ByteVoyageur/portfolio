@@ -4,6 +4,7 @@ import HeroAreaHomePage from '../components/HeroAreaHomePage'
 import AboutAreaHomePage from '../components/AboutAreaHomePage'
 import ProjectAreaHomeThree from '../components/ProjetAreaHomePage'
 import ContactArea from '../components/ContactArea'
+import Footer from '../components/Footer'
 
 const HomePages = () => {
   return (
@@ -17,6 +18,7 @@ const HomePages = () => {
             <ProjectAreaHomeThree />
             <ContactArea />
           </main>
+          <Footer />
         </div>
       </div>
     </>

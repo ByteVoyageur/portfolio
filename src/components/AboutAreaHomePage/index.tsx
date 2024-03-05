@@ -83,17 +83,17 @@ const service_content: DataType = {
       icon: <DevelopmentIcon />,
       title: (
         <>
-          Node.js <br /> Python
+          Git, Linux <br /> AWS, Node.js
         </>
       ),
       sm_des: (
         <>
-          Utilizing Node.js for efficient back-end services <br /> and Python
-          for versatile server-side logic.
+          Utilizing Git for version control, Linux for system operations, <br />{' '}
+          AWS for cloud services, and Node.js for efficient back-end services.
         </>
       ),
-      tag_1: 'Back-End Efficiency',
-      tag_2: 'Versatile Logic',
+      tag_1: 'System Operations & Version Control',
+      tag_2: 'Cloud Services & Back-End Efficiency',
     },
   ],
 }
@@ -104,7 +104,7 @@ const AboutAreaHomePage = ({ style }: any) => {
   return (
     <>
       <div
-        id='service'
+        id='aboutMe'
         className={`tp-service-3__area services-panel-area tp-service-3__overlay-bg ${
           style ? 'sv-iiner__customize' : ''
         } black-bg-2 pt-150 pb-125 z-index-1`}

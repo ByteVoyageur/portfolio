@@ -38,7 +38,10 @@ const ProjectAreaHomePage = () => {
 
   return (
     <>
-      <div className='tp-project-3__area p-relative black-bg-3 pt-110'>
+      <div
+        id='projetArea'
+        className='tp-project-3__area p-relative black-bg-3 pt-110'
+      >
         <div className='container'>
           <div className='row'>
             <div className='col-xl-12'>
