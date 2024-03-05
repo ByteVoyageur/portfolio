@@ -22,63 +22,27 @@ const menu_data: DataType[] = [
   {
     id: 1,
     title: 'Home',
-    link: '#',
-    img_dropdown: true,
-    sub_menus: [
-      { mobile_menu: false, link: '/', title: 'Home 01' },
-      {
-        mobile_menu: false,
-        link: '/home-3',
-        title: 'Home 03',
-      },
-
-      { mobile_menu: true, link: '/home-3', title: 'Web Developer' },
-    ],
+    link: '#home',
+    img_dropdown: false,
   },
   {
     id: 2,
     title: 'About Me',
-    link: '/about',
-    has_dropdown: false,
+    link: '#aboutMe',
+    img_dropdown: false,
   },
-
   {
     id: 3,
-    title: 'Services',
-    link: '#',
-    has_dropdown: true,
-    sub_menus: [
-      { link: '/service', title: 'Service' },
-      { link: '/service-details', title: 'Service Details' },
-    ],
+    title: 'Portfolio',
+    link: '#projetArea',
+    img_dropdown: false,
   },
   {
     id: 4,
-    title: 'Portfolio',
-    link: '#',
-    has_dropdown: true,
-    sub_menus: [
-      { link: '/portfolio', title: 'Portfolio' },
-      { link: '/portfolio-details', title: 'Portfolio Details' },
-    ],
-  },
-  {
-    id: 5,
-    title: 'Blog',
-    link: '#',
-    has_dropdown: true,
-    sub_menus: [
-      { link: '/blog', title: 'Blog List' },
-      { link: '/blog-sidebar', title: 'Blog Sidebar' },
-      { link: '/blog-details', title: 'Blog Details' },
-      { link: '/blog-details-2', title: 'Blog Details 02' },
-    ],
-  },
-  {
-    id: 6,
     title: 'Contact',
-    link: '/contact',
-    has_dropdown: false,
+    link: '#contactForm',
+    img_dropdown: false,
   },
 ]
+
 export default menu_data

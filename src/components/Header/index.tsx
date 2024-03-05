@@ -1,10 +1,10 @@
 'use client'
-import Offcanvas from './Offcanvas'
+/* import Offcanvas from './Offcanvas' */
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 import lightLogo from '@/public/img/logo/logo.png'
-import darkLogo from '@/public/img/logo/logo.png'
+import darkLogo from '@/public/img/logo/logo-black.png'
 import Image from 'next/image'
 
 const HeaderThree = () => {
@@ -103,10 +103,18 @@ const HeaderThree = () => {
               <div className='col-xl-6 col-lg-6 col-md-6 col-6'>
                 <div className='tp-header-3__logo'>
                   <Link className='logo-white' href='/'>
-                    <Image src={lightLogo} alt='image-here' />
+                    <Image
+                      className='header-logo-white-black'
+                      src={lightLogo}
+                      alt='image-here'
+                    />
                   </Link>
                   <Link className='logo-black' href='/'>
-                    <Image src={darkLogo} alt='image-here' />
+                    <Image
+                      className='header-logo-white-black'
+                      src={darkLogo}
+                      alt='image-here'
+                    />
                   </Link>
                 </div>
               </div>
@@ -211,7 +219,7 @@ const HeaderThree = () => {
                   </div>
                   <div className='tp-header-3__btn d-none d-md-block'>
                     <Link className='tp-btn-white' href='/contact'>
-                      <span className='text'>Let us Talk</span>
+                      <span className='text'>Let&apos;s Talk</span>
                       <span>
                         <svg
                           width='12'
@@ -232,7 +240,7 @@ const HeaderThree = () => {
                       </span>
                     </Link>
                   </div>
-                  <div className='tp-header-3__bar'>
+                  {/* <div className='tp-header-3__bar'>
                     <button
                       className='tp-menu-bar tp-offcanvas-open-btn'
                       onClick={() => setShowCanvas(true)}
@@ -258,7 +266,7 @@ const HeaderThree = () => {
                         />
                       </svg>
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -444,7 +452,7 @@ const HeaderThree = () => {
         </div>
       </header>
 
-      <Offcanvas showCanvas={showCanvas} setShowCanvas={setShowCanvas} />
+      {/* <Offcanvas showCanvas={showCanvas} setShowCanvas={setShowCanvas} /> */}
     </>
   )
 }

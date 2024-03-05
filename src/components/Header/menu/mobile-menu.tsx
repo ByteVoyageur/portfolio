@@ -1,12 +1,25 @@
+// mobile-menu.tsx
 'use client'
 import Link from 'next/link'
 import menu_data from './MenuData'
 import React, { useEffect, useState } from 'react'
 
-const MobileMenus = () => {
+const MobileMenus = ({ onMenuClick }: { onMenuClick: () => void }) => {
   const [navTitle, setNavTitle] = useState<string>('')
 
   // const [hoveredItem, setHoveredItem] = useState<string>("active");
+
+  const handleClick = async (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    link: string
+  ) => {
+    e.preventDefault()
+    await onMenuClick()
+
+    setTimeout(() => {
+      window.location.href = link
+    }, 5000) // Adjust this delay time to match the animation duration
+  }
 
   //openMobileMenu
   const openMobileMenu = (menu: string) => {
@@ -63,6 +76,7 @@ const MobileMenus = () => {
               <li className={`has-dropdown active`}>
                 <Link
                   href={item.link}
+                  onClick={(e) => handleClick(e, item.link)}
                   className={`${navTitle === item.title ? 'expanded' : ''}`}
                 >
                   {' '}
@@ -99,26 +113,13 @@ const MobileMenus = () => {
                     </svg>
                   </button>
                 </Link>
-                <ul
-                  className='tp-submenu submenu'
-                  style={{
-                    display: navTitle === item.title ? 'block' : 'none',
-                  }}
-                >
-                  {item.sub_menus?.map((sub_menu, sub_index) => (
-                    <li key={sub_index}>
-                      {sub_menu.mobile_menu! && (
-                        <Link href={sub_menu.link}>{sub_menu.title}</Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
               </li>
             )}
             {item.has_dropdown && (
               <li className={`has-dropdown active`}>
                 <Link
                   href={item.link}
+                  onClick={(e) => handleClick(e, item.link)}
                   className={`${navTitle === item.title ? 'expanded' : ''}`}
                 >
                   {' '}
