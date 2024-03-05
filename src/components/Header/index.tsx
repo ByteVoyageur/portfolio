@@ -103,10 +103,18 @@ const HeaderThree = () => {
               <div className='col-xl-6 col-lg-6 col-md-6 col-6'>
                 <div className='tp-header-3__logo'>
                   <Link className='logo-white' href='/'>
-                    <Image src={lightLogo} alt='image-here' />
+                    <Image
+                      className='header-logo-white-black'
+                      src={lightLogo}
+                      alt='image-here'
+                    />
                   </Link>
                   <Link className='logo-black' href='/'>
-                    <Image src={darkLogo} alt='image-here' />
+                    <Image
+                      className='header-logo-white-black'
+                      src={darkLogo}
+                      alt='image-here'
+                    />
                   </Link>
                 </div>
               </div>
