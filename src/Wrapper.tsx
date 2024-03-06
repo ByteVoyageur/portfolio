@@ -25,10 +25,10 @@ import {
   ScrollTrigger,
   SplitText,
 } from '@/src/plugins'
-import AnimateMouse from '@/src/components/common/animated-mouse'
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText)
 
 if (typeof window !== 'undefined') {
+  const { ScrollTrigger } = require('gsap/ScrollTrigger')
   require('bootstrap/dist/js/bootstrap')
 }
 
@@ -90,7 +90,6 @@ const Wrapper = ({ children }: any) => {
     <ContextProvider>
       {children}
       <ToastContainer position='top-right' />
-      <AnimateMouse />
       <ScrollToTop />
     </ContextProvider>
   )
