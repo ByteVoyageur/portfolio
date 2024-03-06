@@ -1,7 +1,6 @@
 // Wrapper.tsx
 'use client'
 import gsap from 'gsap'
-import { ScrollTrigger, ScrollSmoother } from '@/src/plugins'
 import { useEffect } from 'react'
 import { animationCreate } from '@/src/utils/utils'
 import { throwableAnimation } from '@/src/utils/throwableAnimation'
@@ -20,24 +19,28 @@ import { buttonAnimation } from '@/src/utils/buttonAnimation'
 import { scrollSmother } from '@/src/utils/scrollSmother'
 import { scrollTextAnimation } from '@/src/utils/scrollTextAnimation'
 
+import {
+  ScrollSmoother,
+  ScrollToPlugin,
+  ScrollTrigger,
+  SplitText,
+} from '@/src/plugins'
+gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText)
+
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
-  gsap.registerPlugin(ScrollSmoother)
-  // ... 注册其他插件
+  require('bootstrap/dist/js/bootstrap')
 }
 
 const Wrapper = ({ children }: any) => {
   const pathname = usePathname()
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // animation
-      const timer = setTimeout(() => {
-        animationCreate()
-      }, 100)
+    // animation
+    const timer = setTimeout(() => {
+      animationCreate()
+    }, 100)
 
-      return () => clearTimeout(timer)
-    }
+    return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
@@ -53,18 +56,16 @@ const Wrapper = ({ children }: any) => {
   }, [])
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      throwableAnimation()
-      servicesPanel()
-      PortfolioPanel()
-      animationTitle()
-      animationTitleChar()
-      blogAnimation()
-      linesAnimation()
-      buttonAnimation()
-      scrollSmother()
-      scrollTextAnimation()
-    }
+    throwableAnimation()
+    servicesPanel()
+    PortfolioPanel()
+    animationTitle()
+    animationTitleChar()
+    blogAnimation()
+    linesAnimation()
+    buttonAnimation()
+    scrollSmother()
+    scrollTextAnimation()
   }, [pathname])
 
   return (
