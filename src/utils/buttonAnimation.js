@@ -122,7 +122,9 @@ export function buttonAnimation () {
           })
         });
     
-      }
+      } 
+
+
     
     })(jQuery);
   }

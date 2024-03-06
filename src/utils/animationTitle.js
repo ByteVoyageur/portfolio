@@ -67,6 +67,93 @@ const animationTitle = () => {
       })
     }
   }
+
+  // title animation for home 05
+  if (typeof window !== 'undefined') {
+    let project_text = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.tp-project-5-2-area',
+        start: 'top center-=350',
+        end: 'bottom 150%',
+        pin: '.tp-project-5-2-title',
+        markers: false,
+        pinSpacing: false,
+        scrub: 1,
+      },
+    })
+    project_text.set('.tp-project-5-2-title', {
+      scale: 0.6,
+      duration: 2,
+    })
+    project_text.to('.tp-project-5-2-title', {
+      scale: 1,
+      duration: 2,
+    })
+    project_text.to(
+      '.tp-project-5-2-title',
+      {
+        scale: 1,
+        duration: 2,
+      },
+      '+=2'
+    )
+  }
+
+  // title animation for home 05
+  const st = document.querySelectorAll('.tp-split-text')
+  if (st.length === 0) return
+  gsap.registerPlugin(SplitText)
+  st.forEach((el) => {
+    const split = new SplitText(el, {
+      type: 'lines,words,chars',
+      linesClass: 'tp-split-line',
+    })
+
+    gsap.set(el, { perspective: 400 })
+
+    if (el.classList.contains('tp-split-in-right')) {
+      gsap.set(split.chars, {
+        opacity: 0,
+        x: '50',
+        ease: 'Back.easeOut',
+      })
+    }
+    if (el.classList.contains('tp-split-in-left')) {
+      gsap.set(split.chars, {
+        opacity: 0,
+        x: '-50',
+        ease: 'circ.out',
+      })
+    }
+    if (el.classList.contains('tp-split-in-up')) {
+      gsap.set(split.chars, {
+        opacity: 0,
+        y: '80',
+        ease: 'circ.out',
+      })
+    }
+    if (el.classList.contains('tp-split-in-down')) {
+      gsap.set(split.chars, {
+        opacity: 0,
+        y: '-80',
+        ease: 'circ.out',
+      })
+    }
+
+    el.anim = gsap.to(split.chars, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 90%',
+      },
+      x: '0',
+      y: '0',
+      rotateX: '0',
+      scale: 1,
+      opacity: 1,
+      duration: 0.4,
+      stagger: 0.02,
+    })
+  })
 }
 
 export default animationTitle

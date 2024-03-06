@@ -1,13 +1,11 @@
-// Wrapper.tsx
 'use client'
-import gsap from 'gsap'
 import { useEffect } from 'react'
 import { animationCreate } from '@/src/utils/utils'
 import { throwableAnimation } from '@/src/utils/throwableAnimation'
 import ScrollToTop from '@/src/components/scrollToTop'
 import { ToastContainer } from 'react-toastify'
-import AnimatedCursor from 'react-animated-cursor'
 import { usePathname } from 'next/navigation'
+import { gsap } from 'gsap'
 
 import animationTitle from '@/src/utils/animationTitle'
 import animationTitleChar from '@/src/utils/animationTitleChar'
@@ -18,6 +16,8 @@ import linesAnimation from '@/src/utils/linesAnimation'
 import { buttonAnimation } from '@/src/utils/buttonAnimation'
 import { scrollSmother } from '@/src/utils/scrollSmother'
 import { scrollTextAnimation } from '@/src/utils/scrollTextAnimation'
+import textInvert from '@/src/utils/textInvert'
+import ContextProvider from '@/src/context/app-context'
 
 import {
   ScrollSmoother,
@@ -25,6 +25,7 @@ import {
   ScrollTrigger,
   SplitText,
 } from '@/src/plugins'
+import AnimateMouse from '@/src/components/common/animated-mouse'
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText)
 
 if (typeof window !== 'undefined') {
@@ -56,6 +57,22 @@ const Wrapper = ({ children }: any) => {
   }, [])
 
   useEffect(() => {
+    // sticky section
+    if (typeof window !== 'undefined') {
+      let mm = gsap.matchMedia()
+      mm.add('(min-width: 1199px)', () => {
+        ScrollTrigger.create({
+          trigger: '.tp-port-3-area',
+          start: 'top -60%',
+          end: 'bottom 120%',
+          pin: '.tp-port-3-content-left',
+          pinSpacing: false,
+        })
+      })
+    }
+  }, [])
+
+  useEffect(() => {
     throwableAnimation()
     servicesPanel()
     PortfolioPanel()
@@ -66,27 +83,16 @@ const Wrapper = ({ children }: any) => {
     buttonAnimation()
     scrollSmother()
     scrollTextAnimation()
+    textInvert()
   }, [pathname])
 
   return (
-    <>
+    <ContextProvider>
       {children}
-
       <ToastContainer position='top-right' />
-      <AnimatedCursor
-        innerSize={0}
-        outerSize={15}
-        innerScale={1}
-        outerScale={1.7}
-        outerAlpha={0}
-        outerStyle={{
-          backgroundColor: 'rgba(255, 255, 255, 0.5)',
-          cursor: 'pointer',
-        }}
-        showSystemCursor={true}
-      />
+      <AnimateMouse />
       <ScrollToTop />
-    </>
+    </ContextProvider>
   )
 }
 
