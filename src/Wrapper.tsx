@@ -1,12 +1,14 @@
+// Wrapper.tsx
 'use client'
-import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger, ScrollSmoother } from '@/src/plugins'
+import { useEffect } from 'react'
 import { animationCreate } from '@/src/utils/utils'
 import { throwableAnimation } from '@/src/utils/throwableAnimation'
 import ScrollToTop from '@/src/components/scrollToTop'
 import { ToastContainer } from 'react-toastify'
 import AnimatedCursor from 'react-animated-cursor'
 import { usePathname } from 'next/navigation'
-import { gsap } from 'gsap'
 
 import animationTitle from '@/src/utils/animationTitle'
 import animationTitleChar from '@/src/utils/animationTitleChar'
@@ -18,28 +20,24 @@ import { buttonAnimation } from '@/src/utils/buttonAnimation'
 import { scrollSmother } from '@/src/utils/scrollSmother'
 import { scrollTextAnimation } from '@/src/utils/scrollTextAnimation'
 
-import {
-  ScrollSmoother,
-  ScrollToPlugin,
-  ScrollTrigger,
-  SplitText,
-} from '@/src/plugins'
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText)
-
 if (typeof window !== 'undefined') {
-  require('bootstrap/dist/js/bootstrap')
+  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollSmoother)
+  // ... 注册其他插件
 }
 
 const Wrapper = ({ children }: any) => {
   const pathname = usePathname()
 
   useEffect(() => {
-    // animation
-    const timer = setTimeout(() => {
-      animationCreate()
-    }, 100)
+    if (typeof window !== 'undefined') {
+      // animation
+      const timer = setTimeout(() => {
+        animationCreate()
+      }, 100)
 
-    return () => clearTimeout(timer)
+      return () => clearTimeout(timer)
+    }
   }, [])
 
   useEffect(() => {
@@ -55,16 +53,18 @@ const Wrapper = ({ children }: any) => {
   }, [])
 
   useEffect(() => {
-    throwableAnimation()
-    servicesPanel()
-    PortfolioPanel()
-    animationTitle()
-    animationTitleChar()
-    blogAnimation()
-    linesAnimation()
-    buttonAnimation()
-    scrollSmother()
-    scrollTextAnimation()
+    if (typeof window !== 'undefined') {
+      throwableAnimation()
+      servicesPanel()
+      PortfolioPanel()
+      animationTitle()
+      animationTitleChar()
+      blogAnimation()
+      linesAnimation()
+      buttonAnimation()
+      scrollSmother()
+      scrollTextAnimation()
+    }
   }, [pathname])
 
   return (
