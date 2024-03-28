@@ -5,9 +5,7 @@ import Image from 'next/image'
 
 import hero_shape_1 from '@/public/img/hero/hero-shape-2-1.png'
 import hero_shape_2 from '@/public/img/hero/hero-shape-2-2.png'
-import { HeroSocialLinksHomeThree } from '@/src/components/SocialLinks'
 import { scroller } from 'react-scroll'
-import { auto } from '@popperjs/core'
 
 const scrollTo = () => {
   scroller.scrollTo('service', {
@@ -56,9 +54,7 @@ const HeroAreaHomePage = () => {
           </div>
         </div>
 
-        <div className='tp-hero-3__social-wrap d-none d-lg-inline-flex'>
-          <HeroSocialLinksHomeThree />
-        </div>
+        <div className='tp-hero-3__social-wrap d-none d-lg-inline-flex'></div>
         <a onClick={scrollTo} className='pointer'>
           <div className='tp-hero-3__scrool-down d-none d-lg-inline-flex'>
             <span className='text'>Scroll</span>

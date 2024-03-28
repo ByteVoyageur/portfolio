@@ -69,37 +69,6 @@ const animationTitle = () => {
   }
 
   // title animation for home 05
-  if (typeof window !== 'undefined') {
-    let project_text = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.tp-project-5-2-area',
-        start: 'top center-=350',
-        end: 'bottom 150%',
-        pin: '.tp-project-5-2-title',
-        markers: false,
-        pinSpacing: false,
-        scrub: 1,
-      },
-    })
-    project_text.set('.tp-project-5-2-title', {
-      scale: 0.6,
-      duration: 2,
-    })
-    project_text.to('.tp-project-5-2-title', {
-      scale: 1,
-      duration: 2,
-    })
-    project_text.to(
-      '.tp-project-5-2-title',
-      {
-        scale: 1,
-        duration: 2,
-      },
-      '+=2'
-    )
-  }
-
-  // title animation for home 05
   const st = document.querySelectorAll('.tp-split-text')
   if (st.length === 0) return
   gsap.registerPlugin(SplitText)
