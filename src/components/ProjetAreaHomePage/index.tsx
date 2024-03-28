@@ -24,7 +24,7 @@ const links = [
   'https://banque.xiaosong.fr/',
 ]
 
-const ProjectAreaHomeThree = () => {
+const ProjectAreaHomePage = () => {
   const hoverTextRefs: React.RefObject<HTMLDivElement>[] | any = []
   const moveText = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
     const hoverTextRef = hoverTextRefs[index]
@@ -96,4 +96,4 @@ const ProjectAreaHomeThree = () => {
   )
 }
 
-export default ProjectAreaHomeThree
+export default ProjectAreaHomePage

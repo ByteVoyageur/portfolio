@@ -1,10 +1,9 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
-
 import contact_flower_img_1 from '@/public/img/contact/contact-flower.png'
 import contact_flower_img_2 from '@/public/img/contact/contact-flower-text.png'
-import ContactForm from '../ContactFormTwo'
+import ContactForm from '../ContactForm'
 
 interface DataType {
   subtitle: string
