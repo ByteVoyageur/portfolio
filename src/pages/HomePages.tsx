@@ -5,6 +5,7 @@ import AboutAreaHomePage from '../components/AboutAreaHomePage'
 import ProjectAreaHomeThree from '../components/ProjetAreaHomePage'
 import ContactArea from '../components/ContactArea'
 import Footer from '../components/Footer'
+import ProjectDisplay from '../components/ProjectDisplay/ProjectDisplay'
 
 const HomePages = () => {
   return (
@@ -16,6 +17,7 @@ const HomePages = () => {
             <HeroAreaHomePage />
             <AboutAreaHomePage />
             <ProjectAreaHomeThree />
+            <ProjectDisplay />
             <ContactArea />
           </main>
           <Footer />
