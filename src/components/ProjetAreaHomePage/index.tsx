@@ -4,10 +4,10 @@ import React from 'react'
 import Link from 'next/link'
 import Image, { StaticImageData } from 'next/image'
 
-import project_img_1 from '@/public/img/portfolio/3/portfolio-1.jpg'
-import project_img_2 from '@/public/img/portfolio/3/portfolio-2.jpg'
-import project_img_3 from '@/public/img/portfolio/3/portfolio-3.jpg'
-import project_img_4 from '@/public/img/portfolio/3/portfolio-4.jpg'
+import project_img_1 from '@/public/img/portfolio/3/portfolio-1.png'
+import project_img_2 from '@/public/img/portfolio/3/portfolio-2.png'
+import project_img_3 from '@/public/img/portfolio/3/portfolio-3.png'
+import project_img_4 from '@/public/img/portfolio/3/portfolio-4.png'
 
 type DataType = StaticImageData[]
 const project_imgs: DataType = [
@@ -17,7 +17,14 @@ const project_imgs: DataType = [
   project_img_4,
 ]
 
-const ProjectAreaHomePage = () => {
+const links = [
+  'https://xiaosong.fr/booki/',
+  'https://xiaosong.fr/ohmyfood/',
+  'https://kasa.xiaosong.fr/',
+  'https://banque.xiaosong.fr/',
+]
+
+const ProjectAreaHomeThree = () => {
   const hoverTextRefs: React.RefObject<HTMLDivElement>[] | any = []
   const moveText = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
     const hoverTextRef = hoverTextRefs[index]
@@ -39,7 +46,7 @@ const ProjectAreaHomePage = () => {
   return (
     <>
       <div
-        id='projetArea'
+        id='projectAreaHomeThree'
         className='tp-project-3__area p-relative black-bg-3 pt-110'
       >
         <div className='container'>
@@ -65,7 +72,7 @@ const ProjectAreaHomePage = () => {
                     }}
                     onMouseMove={(e) => moveText(e, index)}
                   >
-                    <Link href='/portfolio-details'>
+                    <Link href={links[index]}>
                       <Image
                         src={img}
                         style={{ height: 'auto' }}
@@ -89,4 +96,4 @@ const ProjectAreaHomePage = () => {
   )
 }
 
-export default ProjectAreaHomePage
+export default ProjectAreaHomeThree
