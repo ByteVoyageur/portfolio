@@ -10664,6 +10664,7 @@ xclip
   }
 }
 .tp-blog-title-sm a {
+  color: #fff;
   background-image: -webkit-radial-gradient(#fff, #fff), -webkit-radial-gradient(#fff, #fff);
   background-image: -moz-radial-gradient(#fff, #fff), -moz-radial-gradient(#fff, #fff);
   background-image: -ms-radial-gradient(#fff, #fff), -ms-radial-gradient(#fff, #fff);
@@ -11389,6 +11390,7 @@ xclip
   object-fit: cover;
   object-position: center top;
   transition: object-position 1.2s ease;
+  border-radius: 15px;
 }
 
 .image-container:hover .project-display-img {
@@ -17244,7 +17246,7 @@ xclip
   position: absolute;
   top: 5px;
   display: inline-block;
-  background: #BCE70C;
+  background: #bce70c;
   box-shadow: 0px 2px 2px rgba(14, 30, 5, 0.5);
   border-radius: 100px;
   height: 32px;
@@ -17254,7 +17256,7 @@ xclip
   position: absolute;
   top: 6px;
   display: inline-block;
-  background: #BCE70C;
+  background: #005f30;
   box-shadow: 0px 2px 2px rgba(14, 30, 5, 0.5);
   border-radius: 100px;
   height: 32px;
@@ -17268,7 +17270,7 @@ xclip
 .tp-pcb-tab .nav-tabs .nav-links {
   font-size: 16px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: white !important;
   padding: 0 26px;
 }
 @media (max-width: 767px) {
@@ -17279,7 +17281,7 @@ xclip
 }
 .tp-pcb-tab .nav-tabs .nav-links.active {
   background-color: transparent;
-  color: #0D1F04;
+  color: #005f30;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -19869,6 +19871,5 @@ html[tp-theme=tp-theme-light] .tp-menu-2 .tp-main-menu-mobile nav > ul > li a {
 }
 html[tp-theme=tp-theme-light] .tp-menu-2 .tp-main-menu-mobile > nav > ul > li.has-dropdown > a .dropdown-toggle-btn svg {
   color: var(--tp-common-black);
-}svg {
-  color: var(--tp-common-black);
+}-black);
 }

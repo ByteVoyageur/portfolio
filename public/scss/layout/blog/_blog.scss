@@ -44,6 +44,7 @@
     }
 
     & a {
+      color: #fff;
       background-image: -webkit-radial-gradient(#fff, #fff),
         -webkit-radial-gradient(#fff, #fff);
       background-image: -moz-radial-gradient(#fff, #fff),
@@ -806,14 +807,14 @@
     }
   }
 }
-// 初始样式
+
 .project-display-img {
   object-fit: cover;
-  object-position: center top; // 初始只显示图片的上半部分
-  transition: object-position 1.2s ease; // 添加动画效果使之平滑过渡
+  object-position: center top;
+  transition: object-position 1.2s ease;
+  border-radius: 15px;
 }
 
-// 父容器悬停时的样式
 .image-container:hover .project-display-img {
-  object-position: center bottom; // 悬停时改变位置以显示完整图片
+  object-position: center bottom;
 }
