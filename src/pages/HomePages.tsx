@@ -5,7 +5,7 @@ import AboutAreaHomePage from '../components/AboutAreaHomePage'
 import ProjectAreaHomePage from '../components/ProjetAreaHomePage'
 import ContactArea from '../components/ContactArea'
 import Footer from '../components/Footer'
-import ProjectDisplay from '../components/ProjectDisplay/ProjectDisplay'
+import ProjectDisplay from '../components/ProjectDisplay'
 
 const HomePages = () => {
   return (
