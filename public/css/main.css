@@ -11389,7 +11389,7 @@ xclip
 .project-display-img {
   object-fit: cover;
   object-position: center top;
-  transition: object-position 1.2s ease;
+  transition: object-position 4.2s ease;
   border-radius: 15px;
 }
 

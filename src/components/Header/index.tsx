@@ -207,7 +207,7 @@ const HeaderThree = () => {
                     </label>
                   </div>
                   <div className='tp-header-3__btn d-none d-md-block'>
-                    <Link className='tp-btn-white' href='#'>
+                    <a className='tp-btn-white' href='#contact-area'>
                       <span className='text'>Let&apos;s Talk</span>
                       <span>
                         <svg
@@ -227,7 +227,7 @@ const HeaderThree = () => {
                           />
                         </svg>
                       </span>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
