@@ -138,7 +138,7 @@ const ProjectDisplay = ({ style }: any) => {
             : 'tp-pcb-area pt-80'
         } pb-70`}
       >
-        <div className='container'>
+        <div className='container' id='project-display-area'>
           <div className='row'>
             <div className='col-xl-12'>
               <div

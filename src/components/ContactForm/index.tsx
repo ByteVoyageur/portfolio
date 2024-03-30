@@ -127,7 +127,6 @@ const ContactForm = () => {
                   <label
                     htmlFor='name'
                     className='visually-hidden-contact-form'
-                    style={{ color: '#FFFFFF' }}
                   >
                     Your Name
                   </label>
@@ -146,7 +145,6 @@ const ContactForm = () => {
                   <label
                     htmlFor='company'
                     className='visually-hidden-contact-form'
-                    style={{ color: '#FFFFFF' }}
                   >
                     Company
                   </label>
@@ -165,7 +163,6 @@ const ContactForm = () => {
                   <label
                     htmlFor='email'
                     className='visually-hidden-contact-form'
-                    style={{ color: '#FFFFFF' }}
                   >
                     Your Email
                   </label>
@@ -184,7 +181,6 @@ const ContactForm = () => {
                   <label
                     htmlFor='message'
                     className='visually-hidden-contact-form'
-                    style={{ color: '#FFFFFF' }}
                   >
                     Your Message
                   </label>

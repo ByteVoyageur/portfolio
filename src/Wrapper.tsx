@@ -11,7 +11,6 @@ import animationTitle from '@/src/utils/animationTitle'
 import animationTitleChar from '@/src/utils/animationTitleChar'
 import servicesPanel from '@/src/utils/servicesPanel'
 import PortfolioPanel from '@/src/utils/PortfolioPanel'
-import blogAnimation from '@/src/utils/blogAnimation'
 import linesAnimation from '@/src/utils/linesAnimation'
 import { buttonAnimation } from '@/src/utils/buttonAnimation'
 import { scrollSmother } from '@/src/utils/scrollSmother'
@@ -78,7 +77,6 @@ const Wrapper = ({ children }: any) => {
     PortfolioPanel()
     animationTitle()
     animationTitleChar()
-    blogAnimation()
     linesAnimation()
     buttonAnimation()
     scrollSmother()
