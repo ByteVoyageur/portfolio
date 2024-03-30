@@ -1,7 +1,7 @@
 // scrollToTop component
 'use client'
 import UseSticky from '@/src/hooks/UseSticky'
-import React, { useState, useEffect, useCallback } from 'react' // 引入useCallback
+import React, { useState, useEffect, useCallback } from 'react'
 
 type style_type = {
   style?: boolean
@@ -19,7 +19,7 @@ const ScrollToTop = ({ style }: style_type) => {
     } else if (showScroll && window.pageYOffset <= 400) {
       setShowScroll(false)
     }
-  }, [showScroll]) // 添加showScroll作为依赖项
+  }, [showScroll])
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -28,13 +28,13 @@ const ScrollToTop = ({ style }: style_type) => {
   useEffect(() => {
     window.addEventListener('scroll', checkScrollTop)
     return () => window.removeEventListener('scroll', checkScrollTop)
-  }, [checkScrollTop]) // checkScrollTop现在是一个稳定的函数引用
+  }, [checkScrollTop])
 
   return (
     <>
       <div
-        className={`back-to-top-wrapper${style ? 'back_to_top-2' : ''} ${
-          sticky && 'back-to-top-btn-show'
+        className={`back-to-top-wrapper ${style ? ' back_to_top-2' : ''} ${
+          sticky ? ' back-to-top-btn-show' : ''
         }`}
       >
         <button
