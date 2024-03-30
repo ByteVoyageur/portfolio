@@ -55,7 +55,14 @@ const HeroAreaHomePage = () => {
         </div>
 
         <div className='tp-hero-3__social-wrap d-none d-lg-inline-flex'></div>
-        <a onClick={scrollTo} className='pointer'>
+        <a
+          href='#!'
+          onClick={(e) => {
+            e.preventDefault()
+            scrollTo()
+          }}
+          className='pointer'
+        >
           <div className='tp-hero-3__scrool-down d-none d-lg-inline-flex'>
             <span className='text'>Scroll</span>
             <span>

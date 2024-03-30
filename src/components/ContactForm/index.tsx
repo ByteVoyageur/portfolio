@@ -124,85 +124,78 @@ const ContactForm = () => {
             <div className='row gx-20'>
               <div className='col-xxl-6 col-xl-6 col-lg-6'>
                 <div className='postbox__comment-input mb-35'>
+                  <label
+                    htmlFor='name'
+                    className='visually-hidden-contact-form'
+                    style={{ color: '#FFFFFF' }}
+                  >
+                    Your Name
+                  </label>
                   <input
+                    id='name'
                     type='text'
                     className='inputText'
                     {...register('name')}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
+                    aria-label='Your Name'
                   />
-                  <span
-                    className={`floating-label ${
-                      isFocused ? 'floating-label-floated' : ''
-                    }`}
-                  >
-                    Your Name
-                  </span>
                   <p className='form_error'>{errors.name?.message}</p>
                 </div>
               </div>
               <div className='col-xxl-6 col-xl-6 col-lg-6'>
                 <div className='postbox__comment-input mb-35'>
+                  <label
+                    htmlFor='company'
+                    className='visually-hidden-contact-form'
+                    style={{ color: '#FFFFFF' }}
+                  >
+                    Company
+                  </label>
                   <input
+                    id='company'
                     type='text'
                     className='inputText'
                     {...register('company')}
-                    onFocus={handleFocus2}
-                    onBlur={handleBlur2}
+                    aria-label='Company'
                   />
-                  <span
-                    className={`floating-label ${
-                      isFocused2 ? 'floating-label-floated' : ''
-                    }`}
-                  >
-                    Company
-                  </span>
                   <p className='form_error'>{errors.company?.message}</p>
                 </div>
               </div>
               <div className='col-xxl-12'>
                 <div className='postbox__comment-input mb-35'>
+                  <label
+                    htmlFor='email'
+                    className='visually-hidden-contact-form'
+                    style={{ color: '#FFFFFF' }}
+                  >
+                    Your Email
+                  </label>
                   <input
+                    id='email'
                     type='text'
                     className='inputText'
                     {...register('email')}
-                    onFocus={handleFocus3}
-                    onBlur={handleBlur3}
+                    aria-label='Your Email'
                   />
-                  <span
-                    className={`floating-label ${
-                      isFocused3 ? 'floating-label-floated' : ''
-                    }`}
-                  >
-                    Your Email
-                  </span>
                   <p className='form_error'>{errors.email?.message}</p>
                 </div>
               </div>
               <div className='col-xxl-12'>
                 <div className='postbox__comment-input mb-20'>
-                  <textarea
-                    className='textareaText'
-                    {...register('message')}
-                    onFocus={handleFocus4}
-                    onBlur={handleBlur4}
-                  ></textarea>
-                  <span
-                    className={`floating-label-2 ${
-                      isFocused4 ? 'floating-label-floated' : ''
-                    }`}
+                  <label
+                    htmlFor='message'
+                    className='visually-hidden-contact-form'
+                    style={{ color: '#FFFFFF' }}
                   >
                     Your Message
-                  </span>
+                  </label>
+                  <textarea
+                    id='message'
+                    className='textareaText'
+                    {...register('message')}
+                    aria-label='Your Message'
+                  ></textarea>
                   <p className='form_error'>{errors.message?.message}</p>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-xl-12'>
-              <div className='contact-inner__category mb-45'>
-                <div className='contact-inner__category-wrapper'></div>
               </div>
             </div>
           </div>
@@ -210,9 +203,7 @@ const ContactForm = () => {
             <div className='col-xxl-12'>
               <div className='postbox__comment-btn'>
                 <button type='submit' className='tp-btn-grey-lg'>
-                  <span>
-                    <i>Send Message</i>
-                  </span>
+                  <span>Send Message</span>
                 </button>
               </div>
             </div>
