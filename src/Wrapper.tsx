@@ -24,6 +24,7 @@ import {
   ScrollTrigger,
   SplitText,
 } from '@/src/plugins'
+
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText)
 
 if (typeof window !== 'undefined') {
@@ -35,19 +36,20 @@ const Wrapper = ({ children }: any) => {
   const pathname = usePathname()
 
   useEffect(() => {
-    // animation
+    // animation create delay
     const timer = setTimeout(() => {
       animationCreate()
     }, 100)
-
+    // clear timeout
     return () => clearTimeout(timer)
   }, [])
 
+  // init ScrollSmoother
   useEffect(() => {
     if (typeof window !== 'undefined') {
       ScrollSmoother.create({
-        smooth: 1.35,
-        effects: true,
+        smooth: 1.35, // smoothness of scrolling
+        effects: true, // enable scroll effects
         smoothTouch: false,
         normalizeScroll: false,
         ignoreMobileResize: true,
@@ -55,6 +57,7 @@ const Wrapper = ({ children }: any) => {
     }
   }, [])
 
+  // animation on the different screen
   useEffect(() => {
     // sticky section
     if (typeof window !== 'undefined') {
