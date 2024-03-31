@@ -6,16 +6,22 @@ export default function UseThemeCheck() {
 
   const tp_set_scheme = useCallback((tp_theme: string) => {
     localStorage.setItem('tp_theme_scheme', tp_theme)
+    // state to track if the the dark theme is active
     document.documentElement.setAttribute('tp-theme', tp_theme)
 
-    // Toggle button class
+    // Update the active state based on if the theme is dark or light
     setActive(tp_theme === 'tp-theme-dark')
   }, [])
 
+  // Function to toggle the theme between dark and light
   const toggleTheme = useCallback(() => {
+    // Get the current theme scheme from local storage
     const themeScheme = localStorage.getItem('tp_theme_scheme')
+    // Get the theme toggle button
     const themeToggle: any = document.querySelector('.themepure-theme-toggle')
 
+    //check the current theme and switch to the opposite one
+    //also update the theme toggle button class to reflect the current theme
     if (themeScheme === 'tp-theme-dark') {
       tp_set_scheme('tp-theme-light')
       themeToggle.classList.remove('dark-active')
