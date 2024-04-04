@@ -1,20 +1,4 @@
 // @import "~bootstrap/scss/bootstrap";
-// 引入 ZCOOL XiaoWei 字体
-@font-face {
-  font-family: 'ZCOOL XiaoWei';
-  src: url('/fonts/ZCOOLXiaoWei-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-// 引入 Megrim 字体
-@font-face {
-  font-family: 'Megrim';
-  src: url('/fonts/Megrim-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 @import '../../public/css/custom-animation.css';
 @import '../../public/css/font-awesome-pro.css';
 @import '../../public/css/fullpage.css';

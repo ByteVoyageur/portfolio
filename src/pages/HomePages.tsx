@@ -2,9 +2,10 @@ import React from 'react'
 import Header from '../components/Header'
 import HeroAreaHomePage from '../components/HeroAreaHomePage'
 import AboutAreaHomePage from '../components/AboutAreaHomePage'
-import ProjectAreaHomeThree from '../components/ProjetAreaHomePage'
+import ProjectAreaHomePage from '../components/ProjetAreaHomePage'
 import ContactArea from '../components/ContactArea'
 import Footer from '../components/Footer'
+import ProjectDisplay from '../components/ProjectDisplay'
 
 const HomePages = () => {
   return (
@@ -15,7 +16,8 @@ const HomePages = () => {
           <main>
             <HeroAreaHomePage />
             <AboutAreaHomePage />
-            <ProjectAreaHomeThree />
+            <ProjectAreaHomePage />
+            <ProjectDisplay />
             <ContactArea />
           </main>
           <Footer />

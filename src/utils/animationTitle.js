@@ -67,6 +67,62 @@ const animationTitle = () => {
       })
     }
   }
+
+  // title animation for home 05
+  const st = document.querySelectorAll('.tp-split-text')
+  if (st.length === 0) return
+  gsap.registerPlugin(SplitText)
+  st.forEach((el) => {
+    const split = new SplitText(el, {
+      type: 'lines,words,chars',
+      linesClass: 'tp-split-line',
+    })
+
+    gsap.set(el, { perspective: 400 })
+
+    if (el.classList.contains('tp-split-in-right')) {
+      gsap.set(split.chars, {
+        opacity: 0,
+        x: '50',
+        ease: 'Back.easeOut',
+      })
+    }
+    if (el.classList.contains('tp-split-in-left')) {
+      gsap.set(split.chars, {
+        opacity: 0,
+        x: '-50',
+        ease: 'circ.out',
+      })
+    }
+    if (el.classList.contains('tp-split-in-up')) {
+      gsap.set(split.chars, {
+        opacity: 0,
+        y: '80',
+        ease: 'circ.out',
+      })
+    }
+    if (el.classList.contains('tp-split-in-down')) {
+      gsap.set(split.chars, {
+        opacity: 0,
+        y: '-80',
+        ease: 'circ.out',
+      })
+    }
+
+    el.anim = gsap.to(split.chars, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 90%',
+      },
+      x: '0',
+      y: '0',
+      rotateX: '0',
+      scale: 1,
+      opacity: 1,
+      duration: 0.4,
+      stagger: 0.02,
+    })
+  })
 }
 
 export default animationTitle

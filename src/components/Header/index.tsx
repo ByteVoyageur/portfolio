@@ -1,98 +1,48 @@
-'use client'
-/* import Offcanvas from './Offcanvas' */
+import React, { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
 
-import lightLogo from '@/public/img/logo/logo.png'
-import darkLogo from '@/public/img/logo/logo-black.png'
-import Image from 'next/image'
+import CustomSvgIcon from '@/public/img/icon/CustomSvgIcon'
+import CustomSvgIconBlack from '@/public/img/icon/CustomSvgIconBlack'
 
 const HeaderThree = () => {
-  const [showCanvas, setShowCanvas] = useState<boolean>(false)
   const [active, setActive] = useState<boolean>(false)
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     const themeScheme = localStorage.getItem('tp_theme_scheme')
-    const themeToggle: any = document.querySelector('.themepure-theme-toggle')
+    const themeToggle = document.querySelector('.themepure-theme-toggle')
 
-    if (themeScheme === 'tp-theme-dark') {
-      tp_set_scheme('tp-theme-light')
-      themeToggle.classList.remove('dark-active')
-      themeToggle.classList.add('light-active')
-    } else {
-      tp_set_scheme('tp-theme-dark')
-      themeToggle.classList.remove('light-active')
-      themeToggle.classList.add('dark-active')
+    if (themeToggle) {
+      if (themeScheme === 'tp-theme-dark') {
+        tp_set_scheme('tp-theme-light')
+        themeToggle.classList.remove('dark-active')
+        themeToggle.classList.add('light-active')
+      } else {
+        tp_set_scheme('tp-theme-dark')
+        themeToggle.classList.remove('light-active')
+        themeToggle.classList.add('dark-active')
+      }
     }
-  }
+  }, [])
 
-  const tp_set_scheme = (tp_theme: any) => {
+  const tp_set_scheme = useCallback((tp_theme: string) => {
     localStorage.setItem('tp_theme_scheme', tp_theme)
     document.documentElement.setAttribute('tp-theme', tp_theme)
-
-    // Toggle button class
     setActive(tp_theme === 'tp-theme-dark')
-  }
-
-  const tp_init_theme = () => {
-    const themeToggle: any = document.querySelector('.themepure-theme-toggle')
-    const themeInput: any = document.querySelector(
-      '.themepure-theme-toggle-input'
-    )
-
-    if (localStorage.getItem('tp_theme_scheme') === 'tp-theme-light') {
-      tp_set_scheme('tp-theme-light')
-      themeToggle.classList.remove('dark-active')
-      themeToggle.classList.add('light-active')
-      themeInput.checked = false
-    } else {
-      tp_set_scheme('tp-theme-dark')
-      themeInput.checked = true
-      themeToggle.classList.remove('light-active')
-      themeToggle.classList.add('dark-active')
-    }
-  }
+  }, [])
 
   useEffect(() => {
+    const themeInput = document.querySelector('.themepure-theme-toggle-input')
+    if (themeInput) {
+      themeInput.addEventListener('change', toggleTheme)
+      return () => themeInput.removeEventListener('change', toggleTheme)
+    }
+  }, [toggleTheme])
+
+  useEffect(() => {
+    const tp_init_theme = () => {}
+
     tp_init_theme()
-
-    const themeInput: any = document.querySelector(
-      '.themepure-theme-toggle-input'
-    )
-    themeInput.addEventListener('change', toggleTheme)
-
-    return () => {
-      themeInput.removeEventListener('change', toggleTheme)
-    }
-  })
-
-  // sticky header
-  const [lastScrollTop, setLastScrollTop] = useState(0)
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollTop = window.scrollY
-
-      if (currentScrollTop > lastScrollTop) {
-        document
-          .querySelector('.tp-int-menu')
-          ?.classList.remove('tp-header-pinned')
-      } else if (currentScrollTop <= 500) {
-        document
-          .querySelector('.tp-int-menu')
-          ?.classList.remove('tp-header-pinned')
-      } else {
-        document
-          .querySelector('.tp-int-menu')
-          ?.classList.add('tp-header-pinned')
-      }
-      setLastScrollTop(currentScrollTop)
-    }
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [lastScrollTop])
+  }, [])
 
   return (
     <>
@@ -103,18 +53,10 @@ const HeaderThree = () => {
               <div className='col-xl-6 col-lg-6 col-md-6 col-6'>
                 <div className='tp-header-3__logo'>
                   <Link className='logo-white' href='/'>
-                    <Image
-                      className='header-logo-white-black'
-                      src={lightLogo}
-                      alt='image-here'
-                    />
+                    <CustomSvgIcon />
                   </Link>
                   <Link className='logo-black' href='/'>
-                    <Image
-                      className='header-logo-white-black'
-                      src={darkLogo}
-                      alt='image-here'
-                    />
+                    <CustomSvgIconBlack />
                   </Link>
                 </div>
               </div>
@@ -126,7 +68,10 @@ const HeaderThree = () => {
               <div className='col-xl-6 col-lg-6 col-md-6 col-6'>
                 <div className='tp-header-3__right-action d-flex align-items-center justify-content-end'>
                   <div className='tp-theme-toggle-single'>
-                    <label className='tp-theme-toggle-main themepure-theme-toggle'>
+                    <label
+                      className='tp-theme-toggle-main themepure-theme-toggle'
+                      aria-label='Toggle theme'
+                    >
                       <span className='dark'>
                         <svg
                           width='14'
@@ -218,7 +163,7 @@ const HeaderThree = () => {
                     </label>
                   </div>
                   <div className='tp-header-3__btn d-none d-md-block'>
-                    <Link className='tp-btn-white' href='/contact'>
+                    <a className='tp-btn-white' href='#contact-area'>
                       <span className='text'>Let&apos;s Talk</span>
                       <span>
                         <svg
@@ -238,42 +183,14 @@ const HeaderThree = () => {
                           />
                         </svg>
                       </span>
-                    </Link>
+                    </a>
                   </div>
-                  {/* <div className='tp-header-3__bar'>
-                    <button
-                      className='tp-menu-bar tp-offcanvas-open-btn'
-                      onClick={() => setShowCanvas(true)}
-                    >
-                      <svg
-                        width='32'
-                        height='10'
-                        viewBox='0 0 32 10'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          d='M31 1H1'
-                          stroke='currentcolor'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                        />
-                        <path
-                          d='M31 9H1'
-                          stroke='currentcolor'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                        />
-                      </svg>
-                    </button>
-                  </div> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </header>
-
       <header>
         <div className='tp-header-3__area tp-header-transparent tp-header-3__ptlr tp-int-menu tp-header-sticky-cloned'>
           <div className='container-fluid'>
@@ -281,10 +198,10 @@ const HeaderThree = () => {
               <div className='col-xl-6 col-lg-6 col-md-6 col-6'>
                 <div className='tp-header-3__logo'>
                   <Link className='logo-white' href='/'>
-                    <Image src={lightLogo} alt='image-here' />
+                    <CustomSvgIcon />
                   </Link>
                   <Link className='logo-black' href='/'>
-                    <Image src={darkLogo} alt='image-here' />
+                    <CustomSvgIconBlack />
                   </Link>
                 </div>
               </div>
@@ -397,7 +314,7 @@ const HeaderThree = () => {
                   </div>
                   <div className='tp-header-3__btn d-none d-md-block'>
                     <Link className='tp-btn-white' href='/contact'>
-                      <span className='text'>Let us Talk</span>
+                      <span className='text'>Let&aposs Talk</span>
                       <span>
                         <svg
                           width='12'
@@ -418,41 +335,12 @@ const HeaderThree = () => {
                       </span>
                     </Link>
                   </div>
-                  <div className='tp-header-3__bar'>
-                    <button
-                      className='tp-menu-bar tp-offcanvas-open-btn'
-                      onClick={() => setShowCanvas(true)}
-                    >
-                      <svg
-                        width='32'
-                        height='10'
-                        viewBox='0 0 32 10'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          d='M31 1H1'
-                          stroke='currentcolor'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                        />
-                        <path
-                          d='M31 9H1'
-                          stroke='currentcolor'
-                          strokeWidth='2'
-                          strokeLinecap='round'
-                        />
-                      </svg>
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </header>
-
-      {/* <Offcanvas showCanvas={showCanvas} setShowCanvas={setShowCanvas} /> */}
     </>
   )
 }

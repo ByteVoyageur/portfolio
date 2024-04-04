@@ -1,10 +1,9 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
-
 import contact_flower_img_1 from '@/public/img/contact/contact-flower.png'
 import contact_flower_img_2 from '@/public/img/contact/contact-flower-text.png'
-import ContactForm from '../ContactFormTwo'
+import ContactForm from '../ContactForm'
 
 interface DataType {
   subtitle: string
@@ -58,7 +57,7 @@ const ContactArea = () => {
   return (
     <>
       <div className='contact-inner__area contact-inner__ptb p-relative black-bg-3'>
-        <div className='container'>
+        <div className='container' id='contact-area'>
           <div className='row justify-content-center'>
             <div className='col-xl-11 offset-xl-1'>
               <div className='row align-items-center'>

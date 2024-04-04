@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import UseThemeCheck from '../../hooks/UseThemeCheck'
+import UseThemeCheck from '@/src/hooks/UseThemeCheck'
 import Preloader from '../preloader/Preloader'
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
